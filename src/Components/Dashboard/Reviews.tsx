@@ -13,7 +13,7 @@ export default function Reviews() {
             <Grid container display={'flex'} spacing={5} mt={2} sx={{ '&.MuiGrid-root': { width: '100%', marginLeft: '0' }, '&.MuiGrid-root >.MuiGrid-item': { padding: isMobile ? '10px 20px' : '0px 10px' } }}>
                 <Grid item xs={isMobile ? 12 : 3} display={'flex'} paddingBottom={2}>
                     <Card sx={{ width: '100%', cursor: 'pointer' }} id="card-id">
-                        <img src={test1} style={{ height: '18rem', width:'100%'}} />
+                        <img src={test1} style={{ height: '17rem', width:'100%'}} />
                         <CardContent sx={{ display: 'flex', flexDirection: 'column', textAlign: 'left', alignItems: 'start', color: 'gray' }}>
                             <img src="https://d8it4huxumps7.cloudfront.net/uploads/images/655dc734b7246_frame.svg" style={{ height: '2rem' }} />
                             <Typography sx={{ mt: '10px' }}>I am incredibly grateful for the assistance and guidance provided by Kashish in refining my resume. I highly recommend to anyone seeking guidance in resume development.</Typography>
@@ -27,7 +27,7 @@ export default function Reviews() {
                 </Grid>
                 <Grid item xs={isMobile ? 12 : 3} display={'flex'} paddingBottom={2}>
                     <Card sx={{ width: '100%', cursor: 'pointer' }} id="card-id">
-                        <img src={test2} style={{ height: '18rem', width:'100%'}} />
+                        <img src={test2} style={{ height: '17rem', width:'100%'}} />
                         <CardContent sx={{ display: 'flex', flexDirection: 'column', textAlign: 'left', alignItems: 'start', color: 'gray' }}>
                             <img src="https://d8it4huxumps7.cloudfront.net/uploads/images/655dc734b7246_frame.svg" style={{ height: '2rem' }} />
                             <Typography sx={{ mt: '10px' }}>One of the best consulting sessions I ever had! Thank you, Rishika, for covering all my queries in a very well-structured manner, I truly loved the way you were listening.</Typography>
@@ -41,7 +41,7 @@ export default function Reviews() {
                 </Grid>
                 <Grid item xs={isMobile ? 12 : 3} display={'flex'} paddingBottom={2}>
                     <Card sx={{ width: '100%', cursor: 'pointer' }} id="card-id">
-                        <img src={test4} style={{ height: '18rem', width:'100%'}} />
+                        <img src={test4} style={{ height: '17rem', width:'100%'}} />
                         <CardContent sx={{ display: 'flex', flexDirection: 'column', textAlign: 'left', alignItems: 'start', color: 'gray' }}>
                             <img src="https://d8it4huxumps7.cloudfront.net/uploads/images/655dc734b7246_frame.svg" style={{ height: '2rem' }} />
                             <Typography sx={{ mt: '10px' }}>I had the incredible opportunity to be mentored by an exceptional individual who exceeded all my expectations. Their unwavering, and deep transformative.</Typography>
@@ -55,7 +55,7 @@ export default function Reviews() {
                 </Grid>
                 <Grid item xs={isMobile ? 12 : 3} display={'flex'} paddingBottom={2}>
                     <Card sx={{ width: '100%', cursor: 'pointer' }} id="card-id">
-                        <img src={test3} style={{ height: '18rem', width:'100%'}} />
+                        <img src={test3} style={{ height: '17rem', width:'100%'}} />
                         <CardContent sx={{ display: 'flex', flexDirection: 'column', textAlign: 'left', alignItems: 'start', color: 'gray' }}>
                             <img src="https://d8it4huxumps7.cloudfront.net/uploads/images/655dc734b7246_frame.svg" style={{ height: '2rem' }} />
                             <Typography sx={{ mt: '10px' }}>I have had the pleasure of working with Rakesh as my mentor for interview preparation, CV review teaching style is patient, encouraging, and always tailored.</Typography>
