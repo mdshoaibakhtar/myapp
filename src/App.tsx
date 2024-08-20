@@ -1,19 +1,22 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import './App.css'
-import Dashboard from './Components/Dashboard/Dashboard'
+import Dashboard from './Components/Dashboard/Dashboard.tsx'
 import Home from "./Components/Home/Home.tsx";
-import CustomNavbar from "./Components/Resuable/CustomNavbar";
+import CustomNavbar from "./Components/Resuable/CustomNavbar.jsx";
 import LogIn from "./Components/onBoarding/LogIn.tsx";
 import SignUp from "./Components/onBoarding/SignUp.tsx";
 import ForgotPassword from "./Components/onBoarding/ForgotPassword.tsx";
 import ChangePassword from "./Components/onBoarding/ChangePassword.tsx";
 import { useSelector } from "react-redux";
 import { Divider, Stack } from "@mui/material";
-import Footer from "./Components/Resuable/Footer";
-import CircularLoader from "./Components/Resuable/CircularLoader";
+import Footer from "./Components/Resuable/Footer.jsx";
+import CircularLoader from "./Components/Resuable/CircularLoader.jsx";
 import { ChatBubble } from "@mui/icons-material";
-
+import JobPosting from './Components/Job Posting/JobPosting.tsx';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import VerifyOTP from './Components/onBoarding/VerifyOTP.tsx';
 
 function App() {
   const { isLoading } = useSelector<any>(state => state.myAppState)
@@ -25,6 +28,7 @@ function App() {
           <Route path='/signup' element={<SignUp />} />
           <Route path='/forgotpassword' element={<ForgotPassword />} />
           <Route path='/changepassword' element={<ChangePassword />} />
+          <Route path='/verifyOtp' element={<VerifyOTP />} />
         </Routes>
       </Stack>
     )
@@ -33,11 +37,15 @@ function App() {
   return (
     <Router>
       {isLoading && <CircularLoader />}
+      <Stack textAlign={'start'}>
+        <ToastContainer newestOnTop />
+      </Stack>
       <CustomNavbar />
-      <Stack sx={isLoading ? { opacity: '0.3', zIndex: '99999' } : { opacity: '1' }}>
+      <Stack sx={isLoading ? { opacity: '0.3', zIndex: '99999', position: 'fixed' } : { opacity: '1' }}>
         <Routes>
           <Route path="/" element={<Dashboard />}></Route>
           <Route path="/fulltimejob" element={<Home />}></Route>
+          <Route path="/jobpost" element={<JobPosting />}></Route>
           <Route path='/auth/*' element={<Test />} />
         </Routes>
         {!(window.location.pathname).includes('/auth') && <Footer />}
