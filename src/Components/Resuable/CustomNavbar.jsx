@@ -40,17 +40,19 @@ import Logout from '@mui/icons-material/Logout';
 import MailIcon from '@mui/icons-material/Mail';
 // import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
 import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
+import { getToken, removeToken } from '../Utilities/HelperUtils';
 
-const pages = ['Dashboard', 'Fulltime Job', 'Internships', 'Company Reviews', 'Hackathon', 'Community'];
+const pages = ['Dashboard', 'Fulltime Job', 'Internships', 'Company Reviews', 'Hackathon', 'Community', 'Job Posting'];
 const settings = ['Profile', 'Account', 'Setting', 'Logout'];
 
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
-  const [userName, setUserName] = React.useState("")
+  // const [userName, setUserName] = React.useState(getToken())
   const [showAppBar, setShowAppBar] = React.useState(false)
   const [search, setSearch] = React.useState('')
   const dispatch = useDispatch();
+
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -65,10 +67,13 @@ function ResponsiveAppBar() {
     setAnchorElUser(null);
     if (page === "Logout") {
       navigate("/auth/")
-      setUserName('')
+      removeToken()
     }
     if (page === "Fulltime Job") {
       navigate("/fulltimejob")
+    }
+    if (page === "Job Posting") {
+      navigate("/jobpost")
     }
   };
   const navigate = useNavigate();
@@ -79,6 +84,9 @@ function ResponsiveAppBar() {
     }
     if (page === "Fulltime Job") {
       navigate("/fulltimejob")
+    }
+    if (page === "Job Posting") {
+      navigate("/jobpost")
     }
   }
   const [showDrawer, setShowDrawer] = React.useState(false);
@@ -113,7 +121,7 @@ function ResponsiveAppBar() {
     setTimeout(() => {
       dispatch(Loading(false))
       navigate("/auth/")
-      setUserName('Harry')
+      // setUserName('Harry')
     }, 4000);
   }
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -125,7 +133,8 @@ function ResponsiveAppBar() {
     setAnchorEl(null);
     if(action === 'log_out'){
       navigate("/auth/")
-      setUserName('')
+      // setUserName('')
+      removeToken()
     }
   };
   return (
@@ -195,7 +204,7 @@ function ResponsiveAppBar() {
               }
             />
           </FormControl> */}
-          {!userName ?
+          {getToken() === undefined ?
             <Box>
               <AccountCircleOutlinedIcon sx={{ cursor: 'pointer', fill: 'black' }} />
               <Tooltip title="Login" arrow >
@@ -223,7 +232,7 @@ function ResponsiveAppBar() {
           <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
             {/* <Typography sx={{ minWidth: 100 }}>Contact</Typography>
               <Typography sx={{ minWidth: 100 }}>Profile</Typography> */}
-            <Tooltip title={userName}>
+            <Tooltip title='Test'>
               <IconButton
                 onClick={handleClick}
                 size="small"
@@ -303,7 +312,7 @@ function ResponsiveAppBar() {
       {/* {showDrawer && <IconButton sx={{ alignSelf: 'end', padding: '0' }} onClick={toggleDrawer(null)}>
         <CloseIcon sx={{ cursor: 'pointer' }} />
       </IconButton>} */}
-      <FloaterCard showDrawer={showDrawer} toggleDrawer={toggleDrawer} contentToShow={contentToShow} setShowDrawer={setShowDrawer} setUserName={setUserName} />
+      <FloaterCard showDrawer={showDrawer} toggleDrawer={toggleDrawer} contentToShow={contentToShow} setShowDrawer={setShowDrawer} />
     </AppBar>
   );
 }
